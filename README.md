@@ -55,6 +55,8 @@ There are numerous design issues and ways this could be improved and made more u
 As a proof of concept, this logs a lot of information both to firephp (if you have that setup in your browser) and to a log file in the log directory.  Change RC_DEBUG to false if you want to turn that off.
 
 ## Where are the tests? ##
-Yes, this should have Unit tests. For a project designed, coded, tested and debugged in less than one day.
+Yes, this should have Unit tests.
 
-This project was done as a proof of concept, in a day, start to finish.  I did not use a framework, as I wanted this to be minimal and self contained, but a lot of time was wasted on things in the RequestHandler class, that would have been built into a framework like symfony.
+This project was done as a proof of concept, in a day, start to finish. I did not use a framework, as I wanted this to be minimal and self contained, but a lot of time was wasted on things in the RequestHandler class, that would have been built into a framework like symfony.
+
+If I have some spare time, I might add unit tests, but I have no current plan to do so. With that said, I have written many unit tests and have found them very useful, as they often force re-evaluation of design decisions you made.
