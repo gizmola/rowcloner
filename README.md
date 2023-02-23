@@ -34,6 +34,17 @@ I wanted a css framework that was fast and easy to use, and could be included fr
 ## Components ##
 This project relies primarily on Doctrine DBA, but also uses monolog and symfony dotenv
 
+## How it was created ##
+This project used a number of techniques that PHP developers will typically use
+ - started with a composer.json generated via composer --init 
+ - public script/files in a /public directory
+ - Use of components added via composer require
+ - PSR-4 autoloading
+ - project files mapped to namespace App/
+ - configuration taking advantage of .env.* files
+ - Uses a trait for generic shared debug routines
+ - html5 markup with a css framework
+
 ## Best Trick ##
 The nicest trick, is facilitated by Doctrine.  The cloned/duplicate row query is very easy thanks to the [DBAL connection insert method](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#insert).
 
