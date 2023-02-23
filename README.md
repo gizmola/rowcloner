@@ -63,5 +63,19 @@ If I have some spare time, I might add unit tests, but I have no current plan to
 
 For ongoing development, unit (and other types of) tests are an indispensible part of the enhancement process, and allow you to maintain quality and find bugs before they go into production.  You also can't take advantage of CI/CD without them.
 
-## Looking to practice unit testing ##
-If you are looking for a way to practice and improve, try forking this repo, making a branch and adding them.
+## Looking to practice unit testing? ##
+If you are looking for a way to practice and improve, try forking this repo, making a branch and adding tests.
+
+You need to [require phpunit](https://phpunit.de/getting-started/phpunit-9.html). As of the time this was written in feb of 2023, you would use composer to do that like this.
+
+```
+composer require --dev phpunit/phpunit ^9
+```
+At minimum you want to write tests for these classes
+- RequestHandler
+- RowCloner
+
+
+
+
+
