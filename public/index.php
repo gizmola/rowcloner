@@ -220,7 +220,7 @@
         <?php endif; ?>
         <footer class="section has-text-centered mt-auto">
             <strong>Row Cloner</strong> by <a href="https://www.gizmola.com">David Rolston</a>. The source code is licensed under the 
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a> license. <i class="fa-brands fa-github m-1"></i>Github Project source repository <a href="https://github.com/gizmola/docker4lamp">here</a> 
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a> license. <i class="fa-brands fa-github m-1"></i>Github Project source repository <a href="https://github.com/gizmola/rowcloner">here</a> 
         </footer>
     </body>
 </html>
