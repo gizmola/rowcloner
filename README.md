@@ -1,4 +1,4 @@
-# rowCloner: Relational database row cloning tool #
+# rowcloner: Relational database row cloning tool #
 This tool began life as a simple proof of concept, based on a [question posed in the phpfreaks.com](https://forums.phpfreaks.com/topic/315930-writing-to-m) forums.
 
 - The tool provides a web interface to select a row in a table by id.
