@@ -49,10 +49,10 @@ This project used a number of techniques that PHP developers will typically use
 The nicest trick, is facilitated by Doctrine.  The cloned/duplicate row query is very easy thanks to the [DBAL connection insert method](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#insert).
 
 ## Design issues ##
-There are numerous design issues and ways this could be improved and made more usable.  If you would like to improve it, I'll consider pull requests. File issues as well.
+There are numerous design issues and ways this could be improved and made more usable.  If you would like to improve it, I'll consider pull requests. You can file issues as well.  I made this on a whim and as a challenge and for practice.  Please keep this in mind.    
 
 ## Logging ##
-As a proof of concept, this logs a lot of information both to firephp (if you have that setup in your browser) and to a log file in the log directory.  Change RC_DEBUG to false if you want to turn that off.
+As a quick and dirty proof of concept, this app logs a lot of information both to firephp (if you have that setup in your browser) and to a log file in the log directory.  For example, all db credentials are dumped on every request.  Change RC_DEBUG to false if you want to turn that off.
 
 ## Where are the tests? ##
 Yes, this should have Unit tests.
@@ -60,3 +60,8 @@ Yes, this should have Unit tests.
 This project was done as a proof of concept, in a day, start to finish. I did not use a framework, as I wanted this to be minimal and self contained, but a lot of time was wasted on things in the RequestHandler class, that would have been built into a framework like symfony.
 
 If I have some spare time, I might add unit tests, but I have no current plan to do so. With that said, I have written many unit tests and have found them very useful, as they often force re-evaluation of design decisions you made.
+
+For ongoing development, unit (and other types of) tests are an indispensible part of the enhancement process, and allow you to maintain quality and find bugs before they go into production.  You also can't take advantage of CI/CD without them.
+
+## Looking to practice unit testing ##
+If you are looking for a way to practice and improve, try forking this repo, making a branch and adding them.
