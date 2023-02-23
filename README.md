@@ -1,12 +1,14 @@
 # rowCloner: Relational database row cloning tool #
-This tool began life as a simple proof of concept, based on a [question posed in the phpfreaks.com](https://forums.phpfreaks.com/topic/315930-writing-to-m) forums].
+This tool began life as a simple proof of concept, based on a [question posed in the phpfreaks.com](https://forums.phpfreaks.com/topic/315930-writing-to-m) forums.
 
 - The tool provides a web interface to select a row in a table by id.
 - It selects that row, and empties the id value
 - Other columns to null can be set optionally
 - It then inserts that row back into the table
 
-This project uses the Doctrine DBAL layer.  It was meant to be a quick and dirty proof of concept, created in minimal time.  There is limited error checking and no security
+This project uses the Doctrine DBAL layer.  It was meant to be a quick and dirty proof of concept, created in minimal time.  There is limited error checking and no real security.  If you want to actually use this tool, you will need to secure it from the world using some other tool.  You can run it locally under Docker or as a development project, or on an intranet if you find it useful. The original user who posted the question was probably creating a development tool to manipulate test data.
+
+As databases typically have relationships, unique indexes and the like, this tool would only be useful in simple cases.
 
 ## Configuration ##
 Create a .env.local file copied/based on the .env.local.template file provided.  Change the relevant database connection variables as needed.  Examine the comments and variables for help.
@@ -22,6 +24,7 @@ Also Run from the project directory:
 
 ```
 symfony server:start
+```
 
 With some other web server, set the webroot to /path/to/rowCloner/public
 
