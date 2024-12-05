@@ -12,17 +12,23 @@
     define('PROJECT_HOME', dirname(__DIR__));
     require_once(PROJECT_HOME . '/vendor/autoload.php');
 
-    // Create Debug bar
-    $debugbar = new StandardDebugBar();
-    $debugbarRenderer = $debugbar->getJavascriptRenderer();
-    $debugbar["messages"]->addMessage("Check index.php source to see how debug messages like this one can be added");
-
     // Create the logger
     $logger = new Logger('main');
     // add handlers
     $logger->pushHandler(new StreamHandler(PROJECT_HOME . '/log/rowcloner.log', Logger::DEBUG));
     $logger->pushHandler(new FirePHPHandler());
+   
 
+    // Create Debug bar
+    $debugbar = new StandardDebugBar();
+    $debugbarRenderer = $debugbar->getJavascriptRenderer();
+    $debugbar["messages"]->addMessage("Check index.php source to see how debug messages like this one can be added");
+    $debugbar->addCollector(new DebugBar\Bridge\MonologCollector($logger));
+
+    // Setup Doctrine Collector
+    $debugStack = new Doctrine\DBAL\Logging\DebugStack();
+
+    
     $dotenv = new Dotenv();
     $dotenv->load(PROJECT_HOME . '/.env.local');
 
@@ -47,6 +53,8 @@
             ];
             try {
                 $conn = DriverManager::getConnection($connectionParams);
+                $conn->getConfiguration()->setSQLLogger($debugStack);
+                $debugbar->addCollector(new DebugBar\Bridge\DoctrineCollector($debugStack));
             } catch(ConnectionException $e) {
                 $requestHandler->setMessageType(RequestHandler::MESSAGE_TYPE_ERROR);
                 $requestHandler->setMessageText('Connection Error:' . $e->getMessage());
