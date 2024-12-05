@@ -7,10 +7,15 @@
     use Doctrine\DBAL\Exception\ConnectionException;
     use App\Gizmola\RequestHandler;
     use App\Gizmola\RowCloner;
-
-
+    // Debug bar
+    use DebugBar\StandardDebugBar;
     define('PROJECT_HOME', dirname(__DIR__));
     require_once(PROJECT_HOME . '/vendor/autoload.php');
+
+    // Create Debug bar
+    $debugbar = new StandardDebugBar();
+    $debugbarRenderer = $debugbar->getJavascriptRenderer();
+    $debugbar["messages"]->addMessage("Check index.php source to see how debug messages like this one can be added");
 
     // Create the logger
     $logger = new Logger('main');
@@ -85,6 +90,7 @@
                 flex-direction: column;
             }
         </style>
+        <?php echo $debugbarRenderer->renderHead() ?>
     </head>
     <body>
         <section class="hero is-info is-small mb-4">
@@ -222,6 +228,7 @@
             <strong>Row Cloner</strong> by <a href="https://www.gizmola.com">David Rolston</a>. The source code is licensed under the 
             <a href="http://opensource.org/licenses/mit-license.php">MIT</a> license. <i class="fa-brands fa-github m-1"></i>Github Project source repository <a href="https://github.com/gizmola/rowcloner">here</a> 
         </footer>
+        <?php echo $debugbarRenderer->render() ?>
     </body>
 </html>
 
