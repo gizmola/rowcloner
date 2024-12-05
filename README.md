@@ -1,4 +1,5 @@
 # rowcloner: Relational database row cloning tool #
+![Row Cloner Screen](./assets/screenshot.png)
 This tool began life as a simple proof of concept, based on a [question posed in the phpfreaks.com](https://forums.phpfreaks.com/topic/315930-writing-to-m) forums.
 
 - The tool provides a web interface to select a row in a table by id.
@@ -77,14 +78,18 @@ This should build an image with the world database installed and ready for use.
 Run the database using docker run:
 
 ```
-docker run -d --rm --name demodb demodb-image
+docker run -d --rm -p 3306:3306 --name demodb demodb-image 
 ```
+
+NOTE: this will allow connection to the container on MySQL standard port 3306.  If you are already running a local mysql server listening to this port, or tunneling to an external database with 3306 this will conflict.
 
 To use the mysql cli client (now called mariadb) you can connect using the docker exec.  You will be prompted for the password which is 'demodbpw'
 
 ```
 docker exec -it demodb mariadb -u root -p world
 ```
+
+You should be able to run queries and mysql standard commands like 'show tables'.
 
 ## Using Docker For Setup ##
 Should you be missing local components to run this in a full web environment, or using the symfony cli helper, here are instructions for setup and running using docker.
