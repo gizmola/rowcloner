@@ -17,7 +17,7 @@ You can run it locally under Docker or as a development project, or on an intran
 As databases typically have relationships, unique indexes and the like, this tool isn't designed to take database constraints into account, and will fail with an error in those cases.  So long as the debugging is turned on a log in the /log directory will be written.
 
 ## Configuration ##
-Create a .env file copied/based on the .env.template file provided.  Change the relevant database connection variables as needed.  Examine the comments and variables for help.
+Create a .env.local file copied/based on the .env.local.template file provided.  Change the relevant database connection variables as needed.  Examine the comments and variables for help.
 
 ## Environment Setup ##
 
@@ -70,7 +70,7 @@ I integrated [PHP Debug bar](http://phpdebugbar.com/) to show how it could be us
 This package comes with a Dockerfile that installs the [MySQL World Database](https://dev.mysql.com/doc/world-setup/en/) into the latest MariaDB version.  To setup and run this database on your local machine (running at localhost:3306), use these commands from the project directory in your cli.
 
 ```
-docker build --tag demodb-image ./demodb
+docker build --build-arg DB_PASSWORD=$(cat .env.local | grep DB_PASSWORD | cut -d '=' -f 2) --tag demodb-image ./demodb
 ```
 This should build an image with the world database installed and ready for use.
 
